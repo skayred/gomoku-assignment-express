@@ -1,12 +1,13 @@
 describe("express_based_game", () => {
-  const checkTurn = (cy, num, sym) => {
-    cy.visit("/");
+  const checkTurn = (cy, num, sym, clean) => {
     cy.get('td').eq(num).click();
 
-    if (!!sym) {
-      cy.get('td').eq(num).contains(sym);
-    } else {
-      cy.get('td').eq(num).should('not.have.value', 'x').should('not.have.value', 'o');
+    if (!clean) {
+      if (!!sym) {
+        cy.get('td').eq(num).contains(new RegExp(sym,"i"));
+      } else {
+        cy.get('td').eq(num).should('not.have.value', new RegExp('x',"i")).should('not.have.value', new RegExp('o',"i"));
+      }
     }
   }
 
