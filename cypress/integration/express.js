@@ -1,7 +1,8 @@
 describe("express_based_game", () => {
   const checkTurn = (cy, num, sym, clean) => {
-    cy.visit("/");
+    cy.reload();
     cy.get('td').eq(num).click();
+    cy.reload();
 
     if (!clean) {
       if (!!sym) {
