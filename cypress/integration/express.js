@@ -37,7 +37,9 @@ describe("express_based_game", () => {
   it("win_condition_works_1", () => {
       for (let i = 0 ; i < 24 ; i+=6) {
         checkTurn(cy, i, 'x');
+        cy.wait(1000);
         checkTurn(cy, i + 1, 'o');
+        cy.wait(1000);
       }
 
       checkTurn(cy, 24, 'x');
@@ -52,7 +54,9 @@ describe("express_based_game", () => {
   it("win_condition_works_2", () => {
       for (let i = 0 ; i < 4 ; i++) {
         checkTurn(cy, i, 'x');
+        cy.wait(1000);
         checkTurn(cy, i + 5, 'o');
+        cy.wait(1000);
       }
 
       checkTurn(cy, 4, 'x');
@@ -65,7 +69,9 @@ describe("express_based_game", () => {
   it("win_condition_works_3", () => {
       for (let i = 0 ; i < 4 ; i++) {
         checkTurn(cy, i, 'x');
+        cy.wait(1000);
         checkTurn(cy, i + 5, 'o');
+        cy.wait(1000);
       }
 
       checkTurn(cy, 22, 'x');
